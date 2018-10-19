@@ -49,11 +49,14 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
 end
 
 def all_winter_holiday_supplies(holiday_hash)
-  holiday_hash[:winter]
-
+  holiday_hash[:winter].collect do |holiday, supplies|
+    supplies
+  end.flatten
 end
 
 def all_supplies_in_holidays(holiday_hash)
+  holiday_hash.each do |season, holiday|
+    
   # iterate through holiday_hash and print items such that your readout resembles:
   # Winter:
   #   Christmas: Lights, Wreath
